@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+header {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); /* Create flexible grid columns */
+  gap: 20px; /* Spacing between grid items */
+}
