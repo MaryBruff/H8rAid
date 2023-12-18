@@ -1,17 +1,17 @@
 export const savedCont = [
     {
-        articleTitle: "Harvey Weinstein",
-        controversy: "Massive douche, you know what he did.",
+        articleTitle: "Eepsum",
+        controversy: "Oopsum",
         reference: "people"
     },
     {
-        articleTitle: "Epstein",
-        controversy: "Weird things happened in that prison man",
-        reference: "God"
+        articleTitle: "Lorum",
+        controversy: "ipsum",
+        reference: "Beebum"
     },
     {
-        articleTitle: "The Rock",
-        controversy: "is BALD!!!!",
+        articleTitle: "Oupsum",
+        controversy: "Beepsum",
         reference: "It was revealed to me in a dream..."
     },
 ];
