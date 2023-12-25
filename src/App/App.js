@@ -1,20 +1,12 @@
-import './App.css';
-
-import { savedCont } from "../savedIdeasvar";
-import Card from "../Card/Card";
+import React from 'react';
+import WikipediaSearch from '../Search/Search'; // Import your WikipediaSearch component
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {savedCont.map((item, index) => (
-          <Card
-            key={index}
-            title={item.articleTitle}
-            body={item.controversy}
-            reference={item.reference}
-          />
-        ))}
+        {/* Render the WikipediaSearch component */}
+        <WikipediaSearch />
       </header>
     </div>
   );

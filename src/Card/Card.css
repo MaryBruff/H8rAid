@@ -1,15 +1,15 @@
 .card {
     width: 30%; /* 30% of the screen width */
-    height: 15%; /* Fixed height */
+    min-height: 100px; /* Minimum height */
     border: 1px solid #ccc; /* Border for visibility */
     margin: 10px; /* Spacing between cards */
     padding: 10px; /* Padding within the card */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     overflow: hidden; /* Hide content exceeding the card height */
+    display: flex; /* Use flexbox for better content distribution */
   
-    /* Ensure text doesn't exceed 100 characters and add ellipsis */
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    /* Ensure text doesn't exceed available space */
+    flex-direction: column;
   }
   
   .card h2 {
@@ -19,5 +19,7 @@
   
   .card p {
     font-size: 14px; /* Body text font size */
+    flex-grow: 1; /* Allow the paragraph to grow within the card */
+    overflow: hidden; /* Hide overflowing text */
+    margin: 0; /* Remove default margin */
   }
-  
