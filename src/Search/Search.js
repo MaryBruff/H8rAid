@@ -16,10 +16,6 @@ function WikipediaSearch() {
     }
   };
 
-  useEffect(() => {
-    // No need for useEffect dependency on searchInput since we call displaySearchResults directly in form submit
-  }, []);
-
   const displaySearchResults = (searchTerm) => {
     let url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchTerm}`;
   
