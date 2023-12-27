@@ -30,8 +30,9 @@ function WikipediaSearch() {
         const filteredResults = data.query.search.filter(
           (item) =>
             item.title.toLowerCase().includes('abuse') ||
-            item.title.toLowerCase().includes('allegation') ||
-            item.title.toLowerCase().includes('drug') ||
+            item.snippet.toLowerCase().includes('abuse')||
+            item.snippet.toLowerCase().includes('allegation') ||
+            item.snippet.toLowerCase().includes('drug') ||
             !containsHtmlTags(item.snippet.toLowerCase()) // Check if snippet contains HTML tags
         );
         // Clean up the snippet text by removing HTML tags and their content
