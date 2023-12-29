@@ -75,9 +75,11 @@ function WikipediaSearch() {
     
   }, [initialResults]);
 
+// This useEffect will run when the page state is updated to find the controversies
   useEffect(() => {
     const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy"];
 
+// This function will find the sections that contain the words in the words array
     function findMatchingSections(page, words) {
         const lowerCaseWords = words.map(word => word.toLowerCase());
 
@@ -89,7 +91,7 @@ function WikipediaSearch() {
 
     const matchingSections = findMatchingSections(page, words);
 
-
+// This function will fetch the data for the matching sections
     if (matchingSections.length > 0) {
       const url = 'https://en.wikipedia.org/w/api.php?';
       const fetchPromises = matchingSections.map((section) => {
@@ -104,7 +106,8 @@ function WikipediaSearch() {
           .then((response) => response.ok ? response.json() : Promise.reject('Failed to load'))
           .catch((error) => console.error('Fetch error:', error));
       });
-
+      
+// This Promise.all will set the state of controversies to the results of the fetchPromises   
       Promise.all(fetchPromises)
         .then((results) => {
           setControversies(results.filter(result => result != null));
