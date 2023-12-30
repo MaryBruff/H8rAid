@@ -1,33 +1,25 @@
-import "./Card.css"
-import WikipediaPage from "../WikipediaPage/WikipediaPage"
-import React, {useState} from 'react';
-import DOMPurify from "dompurify";
-import modifyRelativeUrls from "../hooks/modifyRelativeUrls"
-// import star from ".../Media/star"
+import React, { useState } from 'react';
+import DOMPurify from 'dompurify';
+import './Card.css';
+import modifyRelativeUrls from '../hooks/modifyRelativeUrls';
 
+const Card = ({ snippet }) => {
+  const [showFullContent, setShowFullContent] = useState(false);
 
-const Card = ({ title, snippet }) => {
-    const [showPage,setShowPage] = useState(false)
+  const sanitizedSnippet = DOMPurify.sanitize(modifyRelativeUrls(snippet));
 
-  
-    const sanitizedHtml = DOMPurify.sanitize(modifyRelativeUrls(snippet));
+  const snippetToShow = showFullContent ? sanitizedSnippet : sanitizedSnippet.slice(0, 2500) + '...';
 
-    const handleTitleClick = () =>{
-        setShowPage(true)
-    }
-
-    if (showPage) {
-        return <WikipediaPage pageTitle={title} />
-    }
+  const handleTitleClick = () => {
+    setShowFullContent(!showFullContent);
+  };
 
   return (
     <div className="card">
-        {/* <img src={star} alt="Star Icon" className="star-icon"/> */}
-        <div className="card-content">
-        <p
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sanitizedHtml)}}
-        />
-      {/* You can add more information or formatting here */}
+      <div className="card-content" onClick={handleTitleClick}>
+        <p dangerouslySetInnerHTML={{ __html: snippetToShow }} />
+        <button className="saveButton">😡Save Controversy😡</button>
+        <button className="favoriteButton">🤬Save as favorite controversy🤬</button>
       </div>
     </div>
   );
