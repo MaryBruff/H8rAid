@@ -12,8 +12,8 @@ function App() {
         <button className='login-button'>Login</button>
       </header>
       <Routes>
-        <Route path='/' element={<Navigate to='/main' />} />
-        <Route path='/main' element={<WikipediaSearch />} />
+        <Route path='/main' element={<Navigate to='/' />} />
+        <Route path='/' element={<WikipediaSearch />} />
       </Routes>
     </div>
   );
