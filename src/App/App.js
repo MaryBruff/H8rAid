@@ -4,23 +4,6 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  // const [initialLoad, setInitialLoad] = useState(false);
-
-  // useEffect(() => {
-  //   const pageLoad = () => {
-  //     setInitialLoad(true);
-  //   };
-
-  //   window.addEventListener('load', pageLoad);
-
-  //   return () => {
-  //     window.removeEventListener('load', pageLoad);
-  //   };
-  // }, []);
-
-  // if (!initialLoad) {
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <div className="App">
