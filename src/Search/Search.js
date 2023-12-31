@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../Card/Card'; // Update the path as per your file structure
+import { useNavigate, useParams } from 'react-router-dom';
 
-function WikipediaSearch() {
+function Search() {
   const [searchInput, setSearchInput] = useState('');
-  const [results, setResults] = useState([]);
-  const [initialResults, setInitialResults] = useState([]);
-  const [page, setPage] = useState([]);
-  const [controversies, setControversies] = useState([]);
+  const navigate = useNavigate();
+  const { wikiID } = useParams();
+  const [pageContent, setPageContent] = useState(null);
 
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
@@ -15,111 +14,29 @@ function WikipediaSearch() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (searchInput.trim() !== '') {
-      displaySearchResults(searchInput);
+      navigate(`/contacts/${searchInput}`);
     }
     setSearchInput('');
   };
 
-  async function displaySearchResults(searchTerm){
-    // let url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchTerm}`;
-    const url = 'https://en.wikipedia.org/w/api.php?'
-    let params = {
-      action: 'query',
-      list: 'search',
-      format: 'json',
-      origin: '*',
-      srlimit: 20,
-      srsearch: searchTerm,
-    };
-
-    await fetch(url + new URLSearchParams(params).toString())
-      .then((response) => {
+  useEffect(() => {
+    const fetchPageContent = async () => {
+      try {
+        const response = await fetch(`https://en.wikipedia.org/w/api.php?pageid=${wikiID}&format=json`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
-      })
-      .then((data) => {
-// Sets the state of the initial results to the first result of the search (i.e. Rush Limbaugh)
-        setInitialResults(data.query.search[0])
-      })
-      .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  };
+        const data = await response.json();
+        setPageContent(data);
+      } catch (error) {
+        console.error('There was a problem with fetching the page content:', error);
+      }
+    };
 
-// This useEffect will run when the initialResults state is updated to find the page from the initial result  
-  useEffect(() => {
-    
-      const url = 'https://en.wikipedia.org/w/api.php?'
-      let params = {
-        action: 'parse',
-        prop: 'sections',
-        format: 'json',
-        origin: '*',
-        pageid: initialResults.pageid,
-      };
-      fetch(url + new URLSearchParams(params).toString())
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setPage(data.parse.sections)
-        })
-        .catch((error) => {
-          console.error('There was a problem with the fetch operation:', error);
-        });
-    
-  }, [initialResults]);
-
-// This useEffect will run when the page state is updated to find the controversies
-  useEffect(() => {
-    const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy"];
-
-// This function will find the sections that contain the words in the words array
-    function findMatchingSections(page, words) {
-        const lowerCaseWords = words.map(word => word.toLowerCase());
-
-        return page.filter(section => {
-            const titleLower = section.line.toLowerCase();
-            return lowerCaseWords.some(word => titleLower.includes(word));
-        });
+    if (wikiID) {
+      fetchPageContent();
     }
-
-    const matchingSections = findMatchingSections(page, words);
-
-// This function will fetch the data for the matching sections
-    if (matchingSections.length > 0) {
-      const url = 'https://en.wikipedia.org/w/api.php?';
-      const fetchPromises = matchingSections.map((section) => {
-        let params = {
-          action: 'parse',
-          format: 'json',
-          origin: '*',
-          pageid: initialResults.pageid,
-          section: section.index,
-        };
-        return fetch(url + new URLSearchParams(params).toString())
-          .then((response) => response.ok ? response.json() : Promise.reject('Failed to load'))
-          .catch((error) => console.error('Fetch error:', error));
-      });
-      
-// This Promise.all will set the state of controversies to the results of the fetchPromises   
-      Promise.all(fetchPromises)
-        .then((results) => {
-          setControversies(results.filter(result => result != null));
-        })
-        .catch((error) => {
-          console.error('There was a problem with the fetch operation:', error);
-        });
-    } 
-  }, [page]);
-
-  console.log("controversies: ", controversies);
-
+  }, [wikiID]);
 
   return (
     <div>
@@ -133,23 +50,11 @@ function WikipediaSearch() {
         />
         <button type="submit">Search</button>
       </form>
-
-      <div id="resultsList">
-        {controversies.length > 0 && (
-          <>
-            <h2>Controversies for {initialResults.title}</h2>
-            {controversies.map((item, i) => (
-              <Card
-                key={i}
-                title={item.parse.title}
-                snippet={item.parse.text["*"]}
-              />
-            ))}
-          </>
-        )}
+      <div>
+        {/* Render page content using the 'pageContent' state */}
       </div>
     </div>
   );
 }
 
-export default WikipediaSearch;
+export default Search;
