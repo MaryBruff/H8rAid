@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<WikipediaSearch />} />
         <Route path='/main' element={<Navigate to='/' />} />
-        <Route path="/contacts/:id" element={<WikipediaSearch />} />
+        <Route path="article/:id" element={<WikipediaSearch />} />
       </Routes>
     </div>
   );
