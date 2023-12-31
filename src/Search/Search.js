@@ -20,27 +20,6 @@ function WikipediaSearch() {
     }
     setSearchInput('');
   };
-
-  // async function displaySearchResults(searchTerm) {
-  //   const url = 'https://en.wikipedia.org/w/api.php?';
-  //   let params = {
-  //     action: 'query',
-  //     list: 'search',
-  //     format: 'json',
-  //     origin: '*',
-  //     srlimit: 20,
-  //     srsearch: searchTerm,
-  //   };
-  
-  //   const response = await fetch(url + new URLSearchParams(params).toString());
-  //   if (!response.ok) {
-  //     console.error('Network response was not ok');
-  //     return;
-  //   }
-  
-  //   const data = await response.json();
-  //   setInitialResults(data.query.search[0]);
-  // }
   
   function displaySearchResults(searchTerm) {
     const url = 'https://en.wikipedia.org/w/api.php?';
@@ -61,6 +40,7 @@ function WikipediaSearch() {
         return response.json();
       })
       .then((data) => {
+// Sets the state of the initial results to the first result of the search (i.e. Rush Limbaugh)
         setInitialResults(data.query.search[0]);
         navigate(`/article/${data.query.search[0].pageid}`);
       })
@@ -69,6 +49,7 @@ function WikipediaSearch() {
       });
   }
 
+// This useEffect will run when the initialResults state is updated to find the page from the initial result  
   useEffect(() => {
     if (initialResults.pageid) {
       const url = 'https://en.wikipedia.org/w/api.php?';
@@ -95,8 +76,10 @@ function WikipediaSearch() {
     }
   }, [initialResults]);
 
+// This useEffect will run when the page state is updated to find the controversies
   useEffect(() => {
     const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy"];
+// This function will find the sections that contain the words in the words array
     function findMatchingSections(page, words) {
       const lowerCaseWords = words.map(word => word.toLowerCase());
       return page.filter(section => {
@@ -106,7 +89,7 @@ function WikipediaSearch() {
     }
 
     const matchingSections = findMatchingSections(page, words);
-
+ // This function will fetch the data for the matching sections
     if (matchingSections.length > 0) {
       const url = 'https://en.wikipedia.org/w/api.php?';
       const fetchPromises = matchingSections.map((section) => {
@@ -121,7 +104,7 @@ function WikipediaSearch() {
           .then((response) => response.ok ? response.json() : Promise.reject('Failed to load'))
           .catch((error) => console.error('Fetch error:', error));
       });
-
+// This Promise.all will set the state of controversies to the results of the fetchPromises   
       Promise.all(fetchPromises)
         .then((results) => {
           setControversies(results.filter(result => result != null));
