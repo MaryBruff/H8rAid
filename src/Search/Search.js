@@ -21,7 +21,7 @@ function WikipediaSearch() {
     setSearchInput('');
   };
   
-  function displaySearchResults(searchTerm) {
+  async function displaySearchResults(searchTerm) {
     const url = 'https://en.wikipedia.org/w/api.php?';
     let params = {
       action: 'query',
@@ -32,7 +32,7 @@ function WikipediaSearch() {
       srsearch: searchTerm,
     };
   
-    fetch(url + new URLSearchParams(params).toString())
+    await fetch(url + new URLSearchParams(params).toString())
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
