@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import WikipediaSearch from '../Search/Search';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Search from '../Search/Search.js';
+import WikipediaPage from '../WikipediaPage/WikipediaPage.js'
 import './App.css';
 
 function App() {
-
   return (
     <div className="App">
       <header className="App-header">
@@ -12,8 +12,9 @@ function App() {
         <button className='login-button'>Login</button>
       </header>
       <Routes>
+        <Route path='/' element={<Search />} />
         <Route path='/main' element={<Navigate to='/' />} />
-        <Route path='/' element={<WikipediaSearch />} />
+        <Route path="/contacts/:id" element={<Search />} />
       </Routes>
     </div>
   );
