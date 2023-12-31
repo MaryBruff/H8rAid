@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Search from '../Search/Search.js';
-import WikipediaPage from '../WikipediaPage/WikipediaPage.js'
+import WikipediaSearch from '../Search/Search.js';
 import './App.css';
 
 function App() {
@@ -12,9 +11,9 @@ function App() {
         <button className='login-button'>Login</button>
       </header>
       <Routes>
-        <Route path='/' element={<Search />} />
+        <Route path='/' element={<WikipediaSearch />} />
         <Route path='/main' element={<Navigate to='/' />} />
-        <Route path="/contacts/:id" element={<Search />} />
+        <Route path="/contacts/:id" element={<WikipediaSearch />} />
       </Routes>
     </div>
   );
