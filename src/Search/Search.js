@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Card from '../Card/Card';
 
-function Search() {
+function WikipediaSearch() {
   const [searchInput, setSearchInput] = useState('');
+  const [initialResults, setInitialResults] = useState([]);
+  const [page, setPage] = useState([]);
+  const [controversies, setControversies] = useState([]);
   const navigate = useNavigate();
-  const { wikiID } = useParams();
-  const [pageContent, setPageContent] = useState(null);
 
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
@@ -14,29 +16,105 @@ function Search() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (searchInput.trim() !== '') {
-      navigate(`/contacts/${searchInput}`);
+      displaySearchResults(searchInput);
     }
     setSearchInput('');
   };
 
+  async function displaySearchResults(searchTerm) {
+    const url = 'https://en.wikipedia.org/w/api.php?';
+    let params = {
+      action: 'query',
+      list: 'search',
+      format: 'json',
+      origin: '*',
+      srlimit: 20,
+      srsearch: searchTerm,
+    };
+
+    try {
+      const response = await fetch(url + new URLSearchParams(params).toString());
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setInitialResults(data.query.search[0]);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
+
   useEffect(() => {
-    const fetchPageContent = async () => {
-      try {
-        const response = await fetch(`https://en.wikipedia.org/w/api.php?pageid=${wikiID}&format=json`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    const fetchData = async () => {
+      if (initialResults.pageid) {
+        const url = 'https://en.wikipedia.org/w/api.php?';
+        let params = {
+          action: 'parse',
+          prop: 'sections',
+          format: 'json',
+          origin: '*',
+          pageid: initialResults.pageid,
+        };
+
+        try {
+          const response = await fetch(url + new URLSearchParams(params).toString());
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          setPage(data.parse.sections);
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
         }
-        const data = await response.json();
-        setPageContent(data);
-      } catch (error) {
-        console.error('There was a problem with fetching the page content:', error);
       }
     };
 
-    if (wikiID) {
-      fetchPageContent();
+    fetchData();
+  }, [initialResults.pageid]);
+
+  useEffect(() => {
+    const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy"];
+
+    function findMatchingSections(page, words) {
+      const lowerCaseWords = words.map(word => word.toLowerCase());
+      return page.filter(section => {
+        const titleLower = section.line.toLowerCase();
+        return lowerCaseWords.some(word => titleLower.includes(word));
+      });
     }
-  }, [wikiID]);
+
+    const matchingSections = findMatchingSections(page, words);
+
+    if (matchingSections.length > 0 && initialResults.pageid) {
+      const url = 'https://en.wikipedia.org/w/api.php?';
+      const fetchPromises = matchingSections.map((section) => {
+        let params = {
+          action: 'parse',
+          format: 'json',
+          origin: '*',
+          pageid: initialResults.pageid,
+          section: section.index,
+        };
+        return fetch(url + new URLSearchParams(params).toString())
+          .then((response) => response.ok ? response.json() : Promise.reject('Failed to load'))
+          .catch((error) => console.error('Fetch error:', error));
+      });
+
+      Promise.all(fetchPromises)
+        .then((results) => {
+          setControversies(results.filter(result => result != null));
+        })
+        .catch((error) => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+  }, [page, initialResults.pageid]);
+
+  useEffect(() => {
+    if (initialResults.title) {
+      navigate(`/contacts/${initialResults.pageid}`);
+    }
+  }, [navigate, initialResults]);
 
   return (
     <div>
@@ -50,11 +128,23 @@ function Search() {
         />
         <button type="submit">Search</button>
       </form>
-      <div>
-        {/* Render page content using the 'pageContent' state */}
+
+      <div id="resultsList">
+        {controversies.length > 0 && (
+          <>
+            <h2>Controversies for {initialResults.title}</h2>
+            {controversies.map((item, i) => (
+              <Card
+                key={i}
+                title={item.parse.title}
+                snippet={item.parse.text["*"]}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-export default Search;
+export default WikipediaSearch;
