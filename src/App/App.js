@@ -1,6 +1,7 @@
 import React from 'react';
-import WikipediaSearch from '../Search/Search';
-import "./App.css"
+import { Routes, Route, Navigate } from 'react-router-dom';
+import WikipediaSearch from '../Search/Search.js';
+import './App.css';
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
         <h1 className='header-text'>H8rAid!</h1>
         <button className='login-button'>Login</button>
       </header>
-        <WikipediaSearch />
+      <Routes>
+        <Route path='/' element={<WikipediaSearch />} />
+        <Route path='/main' element={<Navigate to='/' />} />
+        <Route path="article/:id" element={<WikipediaSearch />} />
+      </Routes>
     </div>
   );
 }
