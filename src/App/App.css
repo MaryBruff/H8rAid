@@ -1,19 +1,31 @@
+html {
+  background-color: #161925;
+  color: #161925;
+}
+
+h1 {
+  margin: .67rem;
+  font-size: 4rem;
+}
+
 .App-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f0f0f0;
 }
 
 .header-text {
-  color: blue;
+  background-color: #FDFFFC;
+  border-bottom: .5rem solid #235789;
+  border-right: .5rem solid #235789;
 }
 
 .login-button {
   background-color: grey;
   color: white;
   border: none;
+  margin: .67rem;
   padding: 8px 16px;
   border-radius: 4px;
   transition: background-color 0.3s, transform 0.3s;

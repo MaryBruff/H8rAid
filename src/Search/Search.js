@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../Card/Card';
+import './Search.css'
 
 function WikipediaSearch() {
   const [searchInput, setSearchInput] = useState('');
@@ -32,22 +33,22 @@ function WikipediaSearch() {
       srsearch: searchTerm,
     };
   
-    await fetch(url + new URLSearchParams(params).toString())
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
+  await fetch(url + new URLSearchParams(params).toString())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
 // Sets the state of the initial results to the first result of the search (i.e. Rush Limbaugh)
-        setInitialResults(data.query.search[0]);
-        navigate(`/article/${data.query.search[0].pageid}`);
-      })
-      .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  }
+      setInitialResults(data.query.search[0]);
+      navigate(`/article/${data.query.search[0].pageid}`);
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
 
 // This useEffect will run when the initialResults state is updated to find the page from the initial result  
   useEffect(() => {
@@ -87,7 +88,6 @@ function WikipediaSearch() {
         return lowerCaseWords.some(word => titleLower.includes(word));
       });
     }
-
     const matchingSections = findMatchingSections(page, words);
  // This function will fetch the data for the matching sections
     if (matchingSections.length > 0) {
@@ -116,33 +116,37 @@ function WikipediaSearch() {
   }, [page, initialResults]);
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          value={searchInput}
-          onChange={handleInputChange}
-          autoComplete="off"
-          placeholder="Search on Wikipedia"
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      <div id="resultsList">
+    <main>
+      <div class='search-banner'>
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            value={searchInput}
+            onChange={handleInputChange}
+            autoComplete="off"
+            placeholder="Search on Wikipedia"
+          />
+          <button type="submit">Search</button>
+        </form>
+        <h2 id='resultName'>Controversies for {initialResults.title}</h2>
+      </div>
+      <div>
         {controversies.length > 0 && (
-          <>
-            <h2>Controversies for {initialResults.title}</h2>
-            {controversies.map((item, i) => (
-              <Card
-                key={i}
-                title={item.parse.title}
-                snippet={item.parse.text["*"]}
-              />
-            ))}
-          </>
+          <section>
+            
+            <section id="resultsList">
+              {controversies.map((item, i) => (
+                <Card
+                  key={i}
+                  title={item.parse.title}
+                  snippet={item.parse.text["*"]}
+                />
+              ))}
+            </section>
+          </section>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

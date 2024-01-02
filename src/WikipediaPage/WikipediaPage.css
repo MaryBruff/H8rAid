@@ -1,19 +1,19 @@
 .article {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-  }
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
   
-  .saveButton, .favoriteButton {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.saveButton, .favoriteButton {
+  background-color: #161925;
+  color: #FDFFFC;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
   
-  .saveButton:hover, .favoriteButton:hover {
-    background-color: grey;
-  }
+.saveButton:hover, .favoriteButton:hover {
+  background-color: grey;
+}
