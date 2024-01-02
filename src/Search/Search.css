@@ -1,12 +1,28 @@
-#resultsList {
+@media screen and (max-width: 500px) {
+  #resultsList {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+section{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+} 
+
+@media screen and (min-width: 500px) {
+  #resultsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 
 #resultName {
+  align-self: center;
   color: #161925;
   background-color: #FDFFFC;
-  border-bottom: 0.5em solid #C1292E;
-  border-right: 0.5em solid #C1292E;
-  width: 40%;
+  border-bottom: 0.5rem solid #C1292E;
+  border-right: 0.5rem solid #C1292E;
+  width: fit-content;
 }

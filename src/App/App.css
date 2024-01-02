@@ -16,8 +16,8 @@ html {
 .header-text {
   color: blue;
   background-color: #FDFFFC;
-  border-bottom: .5em solid #235789;
-  border-right: .5em solid #235789;
+  border-bottom: .5rem solid #235789;
+  border-right: .5rem solid #235789;
 }
 
 .login-button {
