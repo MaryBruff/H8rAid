@@ -1,0 +1,12 @@
+#resultsList {
+  display: flex;
+  flex-direction: row;
+}
+
+#resultName {
+  color: #161925;
+  background-color: #FDFFFC;
+  border-bottom: 0.5em solid #C1292E;
+  border-right: 0.5em solid #C1292E;
+  width: 40%;
+}

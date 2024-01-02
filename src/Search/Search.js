@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../Card/Card';
+import './Search.css'
 
 function WikipediaSearch() {
   const [searchInput, setSearchInput] = useState('');
@@ -126,19 +127,21 @@ function WikipediaSearch() {
         />
         <button type="submit">Search</button>
       </form>
-
-      <div id="resultsList">
+      
+      <div>
         {controversies.length > 0 && (
-          <>
-            <h2>Controversies for {initialResults.title}</h2>
-            {controversies.map((item, i) => (
-              <Card
-                key={i}
-                title={item.parse.title}
-                snippet={item.parse.text["*"]}
-              />
-            ))}
-          </>
+          <section>
+            <h2 id='resultName'>Controversies for {initialResults.title}</h2>
+            <section id="resultsList">
+              {controversies.map((item, i) => (
+                <Card
+                  key={i}
+                  title={item.parse.title}
+                  snippet={item.parse.text["*"]}
+                />
+              ))}
+            </section>
+          </section>
         )}
       </div>
     </main>
