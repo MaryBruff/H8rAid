@@ -4,6 +4,7 @@ html {
 }
 
 h1 {
+  margin: .67rem;
   font-size: 4rem;
 }
 
@@ -24,6 +25,7 @@ h1 {
   background-color: grey;
   color: white;
   border: none;
+  margin: .67rem;
   padding: 8px 16px;
   border-radius: 4px;
   transition: background-color 0.3s, transform 0.3s;

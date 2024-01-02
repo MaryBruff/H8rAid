@@ -22,9 +22,9 @@ form, #resultName {
 
 #resultsList {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  flex: 1 200px;
   justify-content: space-evenly;
-  width: 100%;
 }
 
 #resultName {
@@ -37,20 +37,17 @@ form, #resultName {
 }
 
 @media screen and (max-width: 1000px) {
-  #resultsList {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
   form {
     height: fit-content;
     align-self: center;
+  }
+  .search-banner {
+    justify-content: space-evenly
   }
 }
 
 @media screen and (max-width: 500px) {
   #resultsList {
-    display: flex;
     flex-direction: column;
   }
   .search-banner {

@@ -1,15 +1,15 @@
 .card {
   min-height: 100px;
-  max-width: 80%;
+  max-width: 40%;
   border-bottom: .5rem solid #F1D302;
   border-right: .5rem solid #F1D302;
   background-color: #FDFFFC;
   margin: 10px;
   padding: 10px;
   padding-top: 0;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
   overflow: hidden;
-  align-self: center;
+  justify-self: center;
   display: flex;
   flex-direction: column;
 }
@@ -25,7 +25,14 @@
 
 .card p {
   font-size: 14px;
-  flex-grow: 1; /* Allow the paragraph to grow within the card */
+  flex-grow: 1;
   overflow: hidden;
   margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    max-width: 80%;
+    align-self: center;
+  }
 }
