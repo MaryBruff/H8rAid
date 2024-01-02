@@ -1,3 +1,10 @@
+html {
+  background-color: #161925;
+  color: #161925;
+}
+
+
+
 .App-header {
   display: flex;
   justify-content: space-between;
@@ -8,6 +15,9 @@
 
 .header-text {
   color: blue;
+  background-color: #FDFFFC;
+  border-bottom: .5em solid #235789;
+  border-right: .5em solid #235789;
 }
 
 .login-button {

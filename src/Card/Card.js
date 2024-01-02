@@ -16,11 +16,11 @@ const Card = ({ snippet }) => {
 
   return (
     <div className="card">
-      <div className="card-content" onClick={handleTitleClick}>
+      <article className="card-content" onClick={handleTitleClick}>
         <p dangerouslySetInnerHTML={{ __html: snippetToShow }} />
         <button className="saveButton">😡Save Controversy😡</button>
         <button className="favoriteButton">🤬Save as favorite controversy🤬</button>
-      </div>
+      </article>
     </div>
   );
 };

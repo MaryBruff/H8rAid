@@ -32,22 +32,22 @@ function WikipediaSearch() {
       srsearch: searchTerm,
     };
   
-    await fetch(url + new URLSearchParams(params).toString())
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
+  await fetch(url + new URLSearchParams(params).toString())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
 // Sets the state of the initial results to the first result of the search (i.e. Rush Limbaugh)
-        setInitialResults(data.query.search[0]);
-        navigate(`/article/${data.query.search[0].pageid}`);
-      })
-      .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  }
+      setInitialResults(data.query.search[0]);
+      navigate(`/article/${data.query.search[0].pageid}`);
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
 
 // This useEffect will run when the initialResults state is updated to find the page from the initial result  
   useEffect(() => {
@@ -87,7 +87,6 @@ function WikipediaSearch() {
         return lowerCaseWords.some(word => titleLower.includes(word));
       });
     }
-
     const matchingSections = findMatchingSections(page, words);
  // This function will fetch the data for the matching sections
     if (matchingSections.length > 0) {
@@ -116,7 +115,7 @@ function WikipediaSearch() {
   }, [page, initialResults]);
 
   return (
-    <div>
+    <main>
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"
@@ -142,7 +141,7 @@ function WikipediaSearch() {
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 
