@@ -117,21 +117,23 @@ function WikipediaSearch() {
 
   return (
     <main>
-      <form onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          value={searchInput}
-          onChange={handleInputChange}
-          autoComplete="off"
-          placeholder="Search on Wikipedia"
-        />
-        <button type="submit">Search</button>
-      </form>
-      
+      <div class='search-banner'>
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            value={searchInput}
+            onChange={handleInputChange}
+            autoComplete="off"
+            placeholder="Search on Wikipedia"
+          />
+          <button type="submit">Search</button>
+        </form>
+        <h2 id='resultName'>Controversies for {initialResults.title}</h2>
+      </div>
       <div>
         {controversies.length > 0 && (
           <section>
-            <h2 id='resultName'>Controversies for {initialResults.title}</h2>
+            
             <section id="resultsList">
               {controversies.map((item, i) => (
                 <Card

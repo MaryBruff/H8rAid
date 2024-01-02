@@ -3,14 +3,11 @@ html {
   color: #161925;
 }
 
-
-
 .App-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f0f0f0;
 }
 
 .header-text {

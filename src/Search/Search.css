@@ -3,18 +3,42 @@
     display: flex;
     flex-direction: column;
   }
+  .search-banner {
+    flex-direction: column;
+  }
 }
 
-section{
+main, section {
   display: flex;
   flex-direction: column;
-} 
+}
+
+.search-banner {
+  display: flex;
+}
+
+form {
+  height: fit-content;
+  align-self: center;
+  border-bottom: .5rem solid #F1D302;
+  border-right: .5rem solid #F1D302;
+  background-color: #FDFFFC;
+}
+
+form, #resultName {
+  margin: 1em;
+  padding: .1rem;
+}
 
 @media screen and (min-width: 500px) {
   #resultsList {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+  }
+  form {
+    height: fit-content;
+    align-self: center;
   }
 }
 
