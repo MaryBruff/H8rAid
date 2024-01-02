@@ -3,6 +3,10 @@ html {
   color: #161925;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
 .App-header {
   display: flex;
   justify-content: space-between;
@@ -11,7 +15,6 @@ html {
 }
 
 .header-text {
-  color: blue;
   background-color: #FDFFFC;
   border-bottom: .5rem solid #235789;
   border-right: .5rem solid #235789;

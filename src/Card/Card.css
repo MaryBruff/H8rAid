@@ -1,18 +1,6 @@
-@media screen and (max-width: 500px) {
-  .card {
-    align-self: center;
-    width: 80%;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .card {
-    width: 30%;
-  }
-}
-
 .card {
   min-height: 100px;
+  max-width: 80%;
   border-bottom: .5rem solid #F1D302;
   border-right: .5rem solid #F1D302;
   background-color: #FDFFFC;
@@ -21,6 +9,7 @@
   padding-top: 0;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   overflow: hidden;
+  align-self: center;
   display: flex;
   flex-direction: column;
 }

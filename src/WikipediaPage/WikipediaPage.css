@@ -5,8 +5,8 @@
 }
   
 .saveButton, .favoriteButton {
-  background-color: black;
-  color: white;
+  background-color: #161925;
+  color: #FDFFFC;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
