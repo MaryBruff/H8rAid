@@ -79,7 +79,7 @@ function WikipediaSearch() {
 
 // This useEffect will run when the page state is updated to find the controversies
   useEffect(() => {
-    const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy"];
+    const words = ["Controversies", "Controversy", "Hoax", "Criticism", "Scandal", "Legal Issues", "Conspiracy", "Arrest", "Allegation","Allegations", "Dispute", "Abuse", "Criminal", "Banned", "Theft", "Imprisonment", "Censorship"];
 // This function will find the sections that contain the words in the words array
     function findMatchingSections(page, words) {
       const lowerCaseWords = words.map(word => word.toLowerCase());
