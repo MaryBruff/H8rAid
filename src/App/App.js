@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import WikipediaSearch from '../Search/Search.js';
-import CallbackPage from '../Main/Main.js';
+import { LoginButton, CallbackPage } from '../Main/Main.js';
 import './App.css';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <h1 className='header-text'>H8rAid!</h1>
         <button className='login-button'>Login</button>
       </header>
+      <LoginButton />
       <Routes>
         <Route path="/callback" element={<CallbackPage />} />
         <Route path='/' element={<WikipediaSearch />} />

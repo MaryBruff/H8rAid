@@ -1,51 +1,70 @@
-// import React from "react";
-// import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-// export const CallbackPage = () => {
-//   return (
+export const Auth0ProviderWithNavigate = ({ children }) => {
+  const navigate = useNavigate();
 
-//     <div className="page-layout">
-//<header className="App-header">
-// {<h1 className='header-text'>H8rAid!</h1>
-// <button className='login-button'>Login</button>
-// </header>}
-    // <div className="page-layout__content" />
-//     </div>
-//   );
-// };
+  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+  const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL;
 
+  const onRedirectCallback = (appState) => {
+    navigate(appState?.returnTo || window.location.pathname);
+  };
 
-// const LoginButton = () => {
-//   const { loginWithRedirect } = useAuth0();
+  if (!(domain && clientId && redirectUri)) {
+    return null;
+  }
 
-//   return <button onClick={() => loginWithRedirect()}>Log In</button>;
-// };
+  return (
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: redirectUri,
+      }}
+      onRedirectCallback={onRedirectCallback}
+    >
+      {children}
+    </Auth0Provider>
+  );
+};
 
-// const LogoutButton = () => {
-//   const { logout } = useAuth0();
+export const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
 
-//   return (
-//     <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-//       Log Out
-//     </button>
-//   );
-// };
+  const handleLogin = async () => {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/main",
+      },
+    });
+  };
 
-// const Profile = () => {
-//   const { user, isAuthenticated, isLoading } = useAuth0();
+  return (
+    <button className="button__login" onClick={handleLogin}>
+      Log In
+    </button>
+  );
+};
 
-//   if (isLoading) {
-//     return <div>Loading ...</div>;
-//   }
+export const LogoutButton = () => {
+  const { logout } = useAuth0();
 
-//   return (
-//     isAuthenticated && (
-//       <div>
-//         <h2>{user.name}</h2>
-//         <p>{user.email}</p>
-//       </div>
-//     )
-//   );
-// };
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
 
-// export default { CallbackPage, LoginButton, LogoutButton, Profile };
+  return (
+    <button className="button__logout" onClick={handleLogout}>
+      Log Out
+    </button>
+  );
+};
+
+export default { Auth0ProviderWithNavigate, LoginButton, LogoutButton };
