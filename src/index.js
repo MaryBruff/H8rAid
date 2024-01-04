@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Auth0ProviderWithNavigate } from '../Main/Main.js';
+import { Auth0ProviderWithNavigate } from './Main/Main.js';
 import './index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';

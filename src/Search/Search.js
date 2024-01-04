@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 import Card from '../Card/Card';
 import './Search.css'
 
@@ -114,10 +115,12 @@ function WikipediaSearch() {
         });
     }
   }, [page, initialResults]);
+  const { isAuthenticated } = useAuth0();
 
   return (
     <main>
       <div class='search-banner'>
+      {isAuthenticated && (
         <form onSubmit={handleFormSubmit}>
           <input
             type="text"
@@ -128,6 +131,7 @@ function WikipediaSearch() {
           />
           <button type="submit">Search</button>
         </form>
+      )}
         <h2 id='resultName'>Controversies for {initialResults.title}</h2>
       </div>
       <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import WikipediaSearch from '../Search/Search.js';
 import { useAuth0 } from "@auth0/auth0-react";
-import { LoginButton, CallbackPage } from '../Main/Main.js';
+import { LoginButton } from '../Main/Main.js';
 import './App.css';
 
 function App() {
@@ -23,7 +23,6 @@ function App() {
       </header>
       <LoginButton />
       <Routes>
-        <Route path="/callback" element={<CallbackPage />} />
         <Route path='/' element={<WikipediaSearch />} />
         <Route path='/main' element={<Navigate to='/' />} />
         <Route path="article/:id" element={<WikipediaSearch />} />
