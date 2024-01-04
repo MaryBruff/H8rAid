@@ -67,4 +67,24 @@ export const LogoutButton = () => {
   );
 };
 
-export default { Auth0ProviderWithNavigate, LoginButton, LogoutButton };
+export const NavBarButtons = () => {
+  const { isAuthenticated } = useAuth0();
+
+  return (
+    <div className="nav-bar__buttons">
+      {!isAuthenticated && (
+        <>
+          <SignupButton />
+          <LoginButton />
+        </>
+      )}
+      {isAuthenticated && (
+        <>
+          <LogoutButton />
+        </>
+      )}
+    </div>
+  );
+};
+
+export default { Auth0ProviderWithNavigate, LoginButton, LogoutButton, NavBarButtons };
