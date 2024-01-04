@@ -86,5 +86,3 @@ export const NavBarButtons = () => {
     </div>
   );
 };
-
-export default { Auth0ProviderWithNavigate, LoginButton, LogoutButton, NavBarButtons };
