@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Auth0Provider } from '@auth0/auth0-react';
+import { Auth0ProviderWithNavigate } from './Main/Main.js';
 import './index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
@@ -12,20 +12,17 @@ const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter> 
-      <Auth0Provider
+      <Auth0ProviderWithNavigate
         domain="dev-nmwu6caxqykltiqw.us.auth0.com"
         clientId="vr4CpEnTxEiwRlO4UhrlT3HJ5Ko2Qd3i"
         authorizationParams={{
-          redirect_uri: "http://localhost:3000"
+          redirect_uri: "http://localhost:3000/"
         }}
       >
         <App />
-      </Auth0Provider>
+      </Auth0ProviderWithNavigate>
     </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import WikipediaSearch from '../Search/Search.js';
+import { useAuth0 } from "@auth0/auth0-react";
+import { LoginButton, LogoutButton, NavBarButtons } from '../Main/Main.js';
 import './App.css';
 import Card from '../Card/Card.js';
 import useSearchResults from '../hooks/useSearchResults.js';
 
 
 function App() {
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return (
+      <div className="page-loading">
+        <p>One moment please</p>
+      </div>
+    );
+  }
+
   const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse']
   const { triggerSearch, controversies, initialResults } = useSearchResults();
 
@@ -24,7 +36,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className='header-text'>H8rAid!</h1>
-        <button className='login-button'>Login</button>
+        <NavBarButtons />
       </header>
       <Routes>
         <Route path='/' element={<WikipediaSearch />} />
