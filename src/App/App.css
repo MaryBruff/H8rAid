@@ -35,3 +35,16 @@ h1 {
   background-color: orange;
   transform: scale(1.05);
 }
+
+.footer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.footer-text {
+  background-color: #FDFFFC;
+  border-bottom: .5rem solid #235789;
+  border-right: .5rem solid #235789;
+}
