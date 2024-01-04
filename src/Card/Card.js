@@ -13,7 +13,6 @@ const Card = ({ snippet }) => {
   const handleTitleClick = () => {
     setShowFullContent(!showFullContent);
   };
-
   return (
     <div className="card">
       <article className="card-content" onClick={handleTitleClick}>
