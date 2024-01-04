@@ -10,6 +10,19 @@ import useSearchResults from '../hooks/useSearchResults.js';
 
 function App() {
   const { isLoading } = useAuth0();
+  
+  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse']
+  const { initialResults, controversies, triggerSearch  } = useSearchResults();
+  
+  const randomSearch = () => {
+    const randomIndex = Math.floor(Math.random() * randomSearchInputs.length);
+    triggerSearch(randomSearchInputs[randomIndex]);
+  }
+  
+  // COMMENT BACK IN L8R
+  useEffect(() => {
+    randomSearch();
+  }, []);
 
   if (isLoading) {
     return (
@@ -19,19 +32,6 @@ function App() {
     );
   }
 
-  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse']
-  const { triggerSearch, controversies, initialResults } = useSearchResults();
-
-  const randomSearch = () => {
-    const randomIndex = Math.floor(Math.random() * randomSearchInputs.length);
-    triggerSearch(randomSearchInputs[randomIndex]);
-  }
-
-  // COMMENT BACK IN L8R
-  // useEffect(() => {
-  //   randomSearch();
-  // }, []);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -40,7 +40,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<WikipediaSearch />} />
-        {/* <Route path='/main' element={<Navigate to='/' />} /> */}
+        <Route path='/main' element={<Navigate to='/' />} />
         <Route path="article/:id" element={<WikipediaSearch />} />
       </Routes>
       <footer className='footer-card'>
