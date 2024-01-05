@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<h1 align=center> 😡 H8rAid! 🤬 </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+    
+Deploy Link  -- Here --
 
-## Available Scripts
 
-In the project directory, you can run:
+![Tests](https://badgen.net/badge/tests/passing/green?icon=github)
+![Commits](https://badgen.net/github/last-commit/Jesuitman/m3-H8rAid)
 
-### `npm start`
+## 🧑🏼‍💻 👩‍💻 👩🏼‍💻 👨🏻‍💻   Contributors
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Lex Hastings](https://github.com/Jesuitman)  | 
+[Arden Ranta](https://github.com/tenthwalker)  | 
+[Mary Bruff](https://github.com/MaryBruff)  | 
+[Joey Stewart](https://github.com/JoeyStewart)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Tech Stack
+![React Badge](https://img.shields.io/badge/react%20-%23F1D302.svg?&style=for-the-badge&logo=react&logoColor=white)
+![React Router Badge](https://img.shields.io/badge/React_Router-%23235789?style=for-the-badge&logo=react-router&logoColor=white)
+![Cypress Badge](https://img.shields.io/badge/Cypress-%23C1292E?style=for-the-badge&logo=cypress&logoColor=white)
+![VSCode Badge](https://img.shields.io/badge/VSCode-%23F1D302?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![Auth0 Badge](https://img.shields.io/badge/Auth0-EB5424?logo=auth0&logoColor=fff&style=for-the-badge)
+![.ENV Badge](https://img.shields.io/badge/.ENV-ECD53F?logo=dotenv&logoColor=000&style=for-the-badge)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📚 Table of Contents
 
-### `npm run eject`
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Preview](#preview)
+- [Wins](#wins)
+- [Future Ideas](#future-ideas)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h2  id="overview">🌐 Overview </h2>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*Discover the hidden stories of famous personalities with our app, designed to effortlessly bring you controversies linked to public figures directly from Wikipedia. Explore, favorite, and keep up-to-date with the lesser-known sides of the celebrities you follow.*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+----
+<h2  id="getting-started">🗂️ Getting Started </h2>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Fork or clone down this respository. 
+2. In the terminal, open this app by running the command `cd <project folder name>`
+3. Run the command  `npm install` to install dependencies.
+4. Run the command `npm start` to start the server.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+6. You can also view the project <a href=".vercel.app/">here</a>.
+7. Use control C to stop the server.
+8. To test, run the command `npm run cypress`.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h2  id="preview"> 🎥 Preview 📱 </h2>
+<details>
+    
+APP PREVIEW HERE
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📱 Mobile and Tablet Views 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+APP PREVIEW HERE
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+  <summary>
+    Preview of App
+</summary>
+  </details>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<h2  id="wins">💪🏻 Wins </h2>
 
-### Deployment
+- Making a multi page application using React and Router
+- Proper interceptions and stubbing using Cypress
+- Implemenitng search functionality 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2  id="future-ideas">💡 Future Ideas </h2>
+ 
+🔮 The Ability to Edit Wikipedia Pages from the H8rAid APP 
+
+🔮 Infinite Scroll
+
+🔮 
