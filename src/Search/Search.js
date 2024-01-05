@@ -34,7 +34,7 @@ function WikipediaSearch() {
           <button type="submit">Search</button>
         </form>
       )}
-        {controversies[0] && <h2 id='resultName'>Controversies for {initialResults.title}</h2>}
+        {controversies[0] && <h2 className='result-name'>Controversies for {initialResults.title}</h2>}
       </div>
       <div>
         {controversies.length > 0 && (

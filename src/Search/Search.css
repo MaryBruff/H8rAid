@@ -27,7 +27,7 @@ form, #resultName {
   justify-content: space-evenly;
 }
 
-#resultName {
+.result-name {
   align-self: center;
   color: #161925;
   background-color: #FDFFFC;

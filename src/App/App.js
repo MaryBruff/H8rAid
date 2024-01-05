@@ -9,8 +9,7 @@ import useSearchResults from '../hooks/useSearchResults.js';
 
 function App() {
   const { isLoading } = useAuth0();
-  
-  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse'];
+  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russell Brand', 'Bernie Madoff', 'Amy Winehouse'];
   const { initialResults, controversies, triggerSearch  } = useSearchResults();
   
   const randomSearch = () => {
@@ -41,16 +40,18 @@ function App() {
         <Route path='/main' element={<Navigate to='/' />} />
         <Route path="article/:id" element={<WikipediaSearch />} />
       </Routes>
-      <section className='random-card'>
-        <h2 className='main-text'>Random Controversy</h2>
-        {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
-        {controversies.map((item, i) => (
-          <Card
-            key={i}
-            title={item.parse.title}
-            snippet={item.parse.text["*"]}
-          />
-        ))}
+      <section className='random-view'>
+        <h2 className='random-headline'>Random Controversy</h2>
+        {controversies[0] && <h2 className='result-name'>{initialResults.title}</h2>}
+        <section id='randomList'>
+          {controversies.map((item, i) => (
+            <Card
+              key={i}
+              title={item.parse.title}
+              snippet={item.parse.text["*"]}
+            />
+          ))}
+        </section>
       </section>
     </div>
   );
