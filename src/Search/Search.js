@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Card from '../Card/Card';
-import './Search.css'
+import './Search.css';
 import useSearchResults from '../hooks/useSearchResults';
 
 function WikipediaSearch() {
@@ -21,7 +21,7 @@ function WikipediaSearch() {
 
   return (
     <main>
-      <div class='search-banner'>
+      <div className='search-banner'>
       {isAuthenticated && (
         <form onSubmit={handleFormSubmit}>
           <input
@@ -53,6 +53,6 @@ function WikipediaSearch() {
       </div>
     </main>
   );
-}
+};
 
 export default WikipediaSearch;

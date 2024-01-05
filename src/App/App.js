@@ -7,19 +7,17 @@ import './App.css';
 import Card from '../Card/Card.js';
 import useSearchResults from '../hooks/useSearchResults.js';
 
-
 function App() {
   const { isLoading } = useAuth0();
   
-  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse']
+  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse'];
   const { initialResults, controversies, triggerSearch  } = useSearchResults();
   
   const randomSearch = () => {
     const randomIndex = Math.floor(Math.random() * randomSearchInputs.length);
     triggerSearch(randomSearchInputs[randomIndex]);
   }
-  
-  // COMMENT BACK IN L8R
+
   useEffect(() => {
     randomSearch();
   }, []);
@@ -43,8 +41,8 @@ function App() {
         <Route path='/main' element={<Navigate to='/' />} />
         <Route path="article/:id" element={<WikipediaSearch />} />
       </Routes>
-      <footer className='footer-card'>
-        <h2 className='footer-text'>Random Controversy</h2>
+      <section className='random-card'>
+        <h2 className='main-text'>Random Controversy</h2>
         {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
         {controversies.map((item, i) => (
           <Card
@@ -53,9 +51,9 @@ function App() {
             snippet={item.parse.text["*"]}
           />
         ))}
-      </footer>
+      </section>
     </div>
   );
-}
+};
 
 export default App;
