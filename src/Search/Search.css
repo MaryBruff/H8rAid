@@ -10,9 +10,6 @@ form {
   border-bottom: .5rem solid #F1D302;
   border-right: .5rem solid #F1D302;
   background-color: #FDFFFC;
-}
-
-form, .result-name {
   padding: .1rem;
 }
 
