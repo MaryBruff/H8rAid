@@ -26,31 +26,14 @@ section {
   border-right: .5rem solid #235789;
 }
 
-#randomList {
-  display: flex;
-  flex-flow: row wrap;
-  flex: 1 200px;
-  justify-content: space-evenly;
-}
-
-.random-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-}
-
 .random-headline {
   background-color: #FDFFFC;
   border-bottom: .5rem solid #235789;
   border-right: .5rem solid #235789;
   width: fit-content;
+  margin: 1em;
   align-self: center;
   color: #161925;
-}
-
-.search-banner {
-  display: flex;
 }
 
 .result-name {
@@ -62,16 +45,4 @@ section {
   border-bottom: 0.5rem solid #C1292E;
   border-right: 0.5rem solid #C1292E;
   width: fit-content;
-}
-
-@media screen and (max-width: 1000px) {
-  .search-banner {
-    justify-content: space-evenly
-  }
-}
-
-@media screen and (max-width: 500px) {
-  #randomList {
-    flex-direction: column;
-  }
 }

@@ -5,22 +5,24 @@ main, section {
 
 form {
   height: fit-content;
+  margin: .67rem;
   align-self: center;
   border-bottom: .5rem solid #F1D302;
   border-right: .5rem solid #F1D302;
   background-color: #FDFFFC;
 }
 
-form, #resultName {
-  margin: 1em;
+form, .result-name {
   padding: .1rem;
 }
 
 .search-banner {
   display: flex;
+  justify-content: center;
+  margin-bottom: .5em;
 }
 
-#resultsList {
+.results-list {
   display: flex;
   flex-flow: row wrap;
   flex: 1 200px;
@@ -28,6 +30,7 @@ form, #resultName {
 }
 
 .result-name {
+  margin: 1em;
   align-self: center;
   color: #161925;
   background-color: #FDFFFC;
@@ -38,19 +41,14 @@ form, #resultName {
 
 @media screen and (max-width: 1000px) {
   form {
+    margin: 1em;
     height: fit-content;
     align-self: center;
-  }
-  .search-banner {
-    justify-content: space-evenly
   }
 }
 
 @media screen and (max-width: 500px) {
-  #resultsList {
-    flex-direction: column;
-  }
-  .search-banner {
+  .results-list {
     flex-direction: column;
   }
 }

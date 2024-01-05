@@ -39,7 +39,7 @@ function WikipediaSearch() {
       <div>
         {controversies.length > 0 && (
           <section>
-            <section id="resultsList">
+            <section className="results-list">
               {controversies.map((item, i) => (
                 <Card
                   key={i}
