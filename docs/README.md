@@ -24,7 +24,8 @@ Deploy Link  -- Here --
 ![VSCode Badge](https://img.shields.io/badge/VSCode-%23F1D302?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![Auth0 Badge](https://img.shields.io/badge/Auth0-EB5424?logo=auth0&logoColor=fff&style=for-the-badge)
 ![.ENV Badge](https://img.shields.io/badge/.ENV-ECD53F?logo=dotenv&logoColor=000&style=for-the-badge)
-
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 </div>
 
