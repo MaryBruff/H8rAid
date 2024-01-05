@@ -1,6 +1,5 @@
 html {
   background-color: #161925;
-  color: #161925;
 }
 
 h1 {
@@ -20,28 +19,27 @@ section {
   padding: 20px;
 }
 
-.header-text {
+.header-text, .random-headline, .result-name {
   background-color: #FDFFFC;
+  color: #161925;
+  border-radius: 5px;
+}
+
+.header-text, .random-headline {
   border-bottom: .5rem solid #235789;
   border-right: .5rem solid #235789;
 }
 
 .random-headline {
-  background-color: #FDFFFC;
-  border-bottom: .5rem solid #235789;
-  border-right: .5rem solid #235789;
   width: fit-content;
   margin: 1em;
   align-self: center;
-  color: #161925;
 }
 
 .result-name {
   align-self: center;
-  color: #161925;
   margin: 1em;
   padding: .1rem;
-  background-color: #FDFFFC;
   border-bottom: 0.5rem solid #C1292E;
   border-right: 0.5rem solid #C1292E;
   width: fit-content;
