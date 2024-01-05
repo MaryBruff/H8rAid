@@ -77,10 +77,10 @@ APP PREVIEW HERE
 
 <h2  id="wins">💪🏻 Wins </h2>
 
-- Making a multi page application using React and Router
-- Proper interceptions and stubbing using Cypress
-- Implemenitng search functionality 
-
+- Incorporating Auth0
+- Being able to work together in a way that was cohesive and cooperative
+- Understanding the Wikipedia API and its various parameters
+- Learning about DOMPurify which sanitizes HTML and prevents XSS attacks 
 
 
 <h2  id="future-ideas">💡 Future Ideas </h2>
@@ -89,4 +89,4 @@ APP PREVIEW HERE
 
 🔮 Infinite Scroll
 
-🔮 
+🔮 Refining the Search 
