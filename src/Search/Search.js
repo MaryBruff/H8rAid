@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import Card from '../Card/Card';
 import './Search.css';
 import useSearchResults from '../hooks/useSearchResults';
 
-function WikipediaSearch({ savedControversies, saveControversy }) {
+function WikipediaSearch({ saveControversy }) {
   const [searchInput, setSearchInput] = useState('');
   const { initialResults, controversies, triggerSearch } = useSearchResults();
-  const navigate = useNavigate();
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (searchInput.trim() !== '') {
@@ -18,7 +16,6 @@ function WikipediaSearch({ savedControversies, saveControversy }) {
   };
 
   const { isAuthenticated } = useAuth0();
-
 
   return (
     <main>
