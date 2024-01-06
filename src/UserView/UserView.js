@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import Card from '../Card/Card';
 
 const Profile = ({ savedControversies }) => {
   const [showFavorites, setShowFavorites] = useState(false);
 
   const handleShowAll = () => {
     setShowFavorites(false);
-    console.log(savedControversies)
+    console.log(savedControversies);
   };
 
   const handleShowFavorites = () => {
@@ -25,10 +26,14 @@ const Profile = ({ savedControversies }) => {
       <h2>Saved Controversies</h2>
       <div>
         {filteredControversies.map((controversy, index) => (
-          <div key={index}>
-            <p>{controversy.content}</p>
-            <p>{controversy.isFavorite ? 'Favorite' : 'Not Favorite'}</p>
-          </div>
+          <Card
+            key={index}
+            snippet={controversy.content}
+            onSave={() => {
+            }}
+            onSaveAsFavorite={() => {
+            }}
+          />
         ))}
       </div>
     </div>

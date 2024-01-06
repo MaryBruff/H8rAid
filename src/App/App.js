@@ -24,6 +24,16 @@ function App() {
     const randomIndex = Math.floor(Math.random() * randomSearchInputs.length);
     triggerSearch(randomSearchInputs[randomIndex]);
   }
+
+
+  const saveControversy = (snippetToShow, isFavorite = false) => {
+    const controversyObject = {
+      isFavorite: isFavorite,
+      content: snippetToShow,
+    };
+    setSavedControversies([...savedControversies, controversyObject]);
+    console.log(savedControversies)
+  };
   
   // COMMENT BACK IN L8R
   // useEffect(() => {
@@ -48,11 +58,23 @@ function App() {
         {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
       </header>
       <Routes>
-        <Route path='/' element={<WikipediaSearch savedControversies={savedControversies}/>} />
-        <Route path='/main' element={<Navigate to='/' savedControversies={savedControversies}/>} />
-        <Route path='/profile' element={<Profile savedControversies={savedControversies} />} />
-        <Route path="article/:id" element={<WikipediaSearch />} />
-      </Routes>
+      {/* Pass the saveControversy function as a prop */}
+      <Route
+        path='/'
+        element={
+          <WikipediaSearch
+            savedControversies={savedControversies}
+            saveControversy={saveControversy} // Pass the function as a prop
+          />
+        }
+      />
+      <Route path='/main' element={<Navigate to='/' />} />
+      <Route
+        path='/profile'
+        element={<Profile savedControversies={savedControversies} />}
+      />
+      <Route path="article/:id" element={<WikipediaSearch />} />
+    </Routes>
       {showRandomControversy && ( // Render Random Controversy section conditionally
 
       <footer className='footer-card'>

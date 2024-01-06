@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 import './Search.css'
 import useSearchResults from '../hooks/useSearchResults';
 
-function WikipediaSearch() {
+function WikipediaSearch({savedControversies, saveControversy}) {
   const [searchInput, setSearchInput] = useState('');
   const { initialResults, controversies, triggerSearch } = useSearchResults();
   const navigate = useNavigate();
@@ -17,17 +17,8 @@ function WikipediaSearch() {
     setSearchInput('');
   };
 
-  const [savedControversies, setSavedControversies] = useState([])
   const { isAuthenticated } = useAuth0();
 
-  const saveControversy = (snippet, isFavorite = false) => {
-    const controversyObject = {
-      isFavorite: isFavorite,
-      content: snippet,
-    };
-    setSavedControversies([...savedControversies, controversyObject]);
-    console.log(savedControversies)
-  };
 
   return (
     <main>
