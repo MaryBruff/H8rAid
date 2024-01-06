@@ -14,8 +14,6 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-bottom: .5rem solid #F1D302;
-  border-right: .5rem solid #F1D302; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
