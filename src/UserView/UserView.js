@@ -6,7 +6,6 @@ const Profile = ({ savedControversies }) => {
 
   const handleShowAll = () => {
     setShowFavorites(false);
-    console.log(savedControversies);
   };
 
   const handleShowFavorites = () => {
@@ -23,7 +22,7 @@ const Profile = ({ savedControversies }) => {
         <button onClick={handleShowAll}>Show All</button>
         <button onClick={handleShowFavorites}>Show Favorites</button>
       </div>
-      <h2>Saved Controversies</h2>
+      <h2 className='random-headline'>Saved Controversies</h2>
       <div>
         {filteredControversies.map((controversy, index) => (
           <Card
