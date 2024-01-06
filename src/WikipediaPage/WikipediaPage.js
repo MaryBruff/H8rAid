@@ -53,3 +53,7 @@ return (
 };
 
 export default WikipediaPage;
+
+WikipediaPage.propTypes = {
+    pageTitle: PropTypes.string.isRequired,
+  };
