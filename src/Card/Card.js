@@ -24,3 +24,7 @@ const Card = ({ snippet, onSave, onSaveAsFavorite }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  snippet: PropTypes.string.isRequired,
+};
