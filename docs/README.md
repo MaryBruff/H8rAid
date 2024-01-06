@@ -58,9 +58,10 @@
 
 <h2  id="preview"> 🎥 Preview 📱 </h2>
 <details>
-    ![h8raid](https://github.com/Jesuitman/m3-H8rAid/assets/139895703/8134bd58-abee-4ad3-880e-dc42ee26bf42)
+    
+![h8raid-preview-gif](https://github.com/Jesuitman/m3-H8rAid/assets/139895703/8134bd58-abee-4ad3-880e-dc42ee26bf42)
 
-APP PREVIEW HERE
+
 
 📱 Mobile and Tablet Views 
 
