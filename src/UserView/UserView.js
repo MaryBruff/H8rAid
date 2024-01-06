@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../Card/Card';
+import PropTypes from "prop-types";
 
 const Profile = ({ savedControversies }) => {
   const [showFavorites, setShowFavorites] = useState(false);
@@ -42,7 +43,6 @@ const Profile = ({ savedControversies }) => {
 
 export default Profile;
 
-ControversyDisplay.propTypes = {
-  initialResults: PropTypes.object.isRequired,
-  controversies: PropTypes.array.isRequired,
-};
+Profile.propTypes = {
+  savedControversies: PropTypes.array.isRequired,
+}
