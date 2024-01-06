@@ -30,6 +30,11 @@
   margin: 0;
 }
 
+.saveButton,
+.favoriteButton {
+  margin: 0.3rem;
+}
+
 @media screen and (max-width: 500px) {
   .card {
     max-width: 80%;
