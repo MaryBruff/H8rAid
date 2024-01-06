@@ -63,3 +63,12 @@ button:hover {
   text-decoration: none; 
   color: inherit; 
 }
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .App-header button {
+    font-size: .5em;
+  }
+}
