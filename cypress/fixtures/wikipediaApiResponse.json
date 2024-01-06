@@ -1,14 +1,14 @@
 {
-    "query": {
-      "search": [
-        {
-          "title": "Example Title 1",
-          "snippet": "This is an example snippet for the first result."
-        },
-        {
-          "title": "Example Title 2",
-          "snippet": "Another example snippet for the second result."
-        }
-      ]
-    }
+  "query": {
+    "search": [
+      {
+        "title": "Example Title 1",
+        "snippet": "This is an example snippet for the first result."
+      },
+      {
+        "title": "Example Title 2",
+        "snippet": "Another example snippet for the second result."
+      }
+    ]
   }
+}

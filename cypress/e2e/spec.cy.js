@@ -9,8 +9,7 @@ describe('API Tests', () => {
   it('Fetches and displays Wikipedia page contents', () => {
     cy.intercept('GET', 'https://en.wikipedia.org/w/api.php?', {
       statusCode: 200,
-      fixture: 'wikipediaApiResponse.json'
-
+      fixture: 'wikipediaApiResponse',
     }).as('fetchContents');
     cy.visit('http://localhost:3000/');
     cy.wait('@fetchContents').then(({ response }) => {
