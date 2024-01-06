@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify';
 import './Card.css';
 import modifyRelativeUrls from '../hooks/modifyRelativeUrls';
 
-const Card = ({ snippet }) => {
+const Card = ({ snippet, onSave, onSaveAsFavorite }) => {
   const [showFullContent, setShowFullContent] = useState(false);
 
   const sanitizedSnippet = DOMPurify.sanitize(modifyRelativeUrls(snippet));
@@ -17,8 +17,8 @@ const Card = ({ snippet }) => {
     <div className="card">
       <article className="card-content" onClick={handleTitleClick}>
         <p dangerouslySetInnerHTML={{ __html: snippetToShow }} />
-        <button className="saveButton">😡Save Controversy😡</button>
-        <button className="favoriteButton">🤬Save as favorite controversy🤬</button>
+        <button className="saveButton" onClick={onSave}>😡Save Controversy😡</button>
+        <button className="favoriteButton" onClick={onSaveAsFavorite}>🤬Save as favorite controversy🤬</button>
       </article>
     </div>
   );

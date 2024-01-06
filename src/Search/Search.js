@@ -17,7 +17,17 @@ function WikipediaSearch() {
     setSearchInput('');
   };
 
+  const [savedControversies, setSavedControversies] = useState([])
   const { isAuthenticated } = useAuth0();
+
+  const saveControversy = (snippet, isFavorite = false) => {
+    const controversyObject = {
+      isFavorite: isFavorite,
+      content: snippet,
+    };
+    setSavedControversies([...savedControversies, controversyObject]);
+    console.log(savedControversies)
+  };
 
   return (
     <main>
@@ -42,10 +52,12 @@ function WikipediaSearch() {
             <section id="resultsList">
               {controversies.map((item, i) => (
                 <Card
-                  key={i}
-                  title={item.parse.title}
-                  snippet={item.parse.text["*"]}
-                />
+                key={i}
+                title={item.parse.title}
+                snippet={item.parse.text["*"]}
+                onSave={() => saveControversy(item.parse.text["*"])} // Save controversy function for Save button
+                onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)} // Save as favorite controversy function for Save as Favorite button
+              />
               ))}
             </section>
           </section>

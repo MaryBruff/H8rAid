@@ -1,5 +1,5 @@
 html {
-  background-color: #161925;
+  background-color: white;
   color: #161925;
 }
 
@@ -47,4 +47,9 @@ h1 {
   background-color: #FDFFFC;
   border-bottom: .5rem solid #235789;
   border-right: .5rem solid #235789;
+}
+
+.logo-link {
+  text-decoration: none; 
+  color: inherit; 
 }
