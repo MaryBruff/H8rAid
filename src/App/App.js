@@ -57,27 +57,17 @@ function App() {
         {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
       </header>
       <Routes>
-      <Route
-        path='/'
-        element={
-          <WikipediaSearch
-            savedControversies={savedControversies}
-            saveControversy={saveControversy} 
-          />
-        }
-      />
+      <Route path='/' element={<WikipediaSearch savedControversies={savedControversies} saveControversy={saveControversy} />}/>
       <Route path='/main' element={<Navigate to='/' />} />
-      <Route
-        path='/profile'
-        element={<Profile savedControversies={savedControversies} />}
-      />
+      <Route path='/profile' element={<Profile savedControversies={savedControversies} />}/>
       <Route path="article/:id" element={<WikipediaSearch />} />
     </Routes>
-      {showRandomControversy && ( // Render Random Controversy section conditionally
+      {showRandomControversy && ( 
 
-      <footer className='footer-card'>
-        <h2 className='footer-text'>Random Controversy</h2>
+      <section className='random-view'>
+        <h2 className='random-headline'>Random Controversy</h2>
         {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
+        <section className='results-list'>
         {controversies.map((item, i) => (
           <Card
             key={i}
@@ -85,7 +75,8 @@ function App() {
             snippet={item.parse.text["*"]}
           />
         ))}
-      </footer>
+        </section>
+      </section>
       )}
     </div>
   );
