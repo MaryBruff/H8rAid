@@ -21,7 +21,6 @@ describe('API Tests', () => {
     cy.contains('An error occurred').should('not.exist');
   });
 
-
   it('Handles error when API fails', () => {
     cy.intercept('GET', 'https://en.wikipedia.org/w/api.php?', {
       statusCode: 500,

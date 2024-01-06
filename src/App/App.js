@@ -63,7 +63,7 @@ function App() {
         {showRandomControversy && ( 
         <section className='random-view'>
           <h2 className='random-headline'>Random Controversy</h2>
-          {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
+          {controversies[0] && <h2 className='result-name'>{initialResults.title}</h2>}
           <section className='results-list'>
           {controversies.map((item, i) => (
             <Card
