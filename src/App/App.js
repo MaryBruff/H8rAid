@@ -16,14 +16,13 @@ function App() {
   const [savedControversies, setSavedControversies] = useState([]);
 
   
-  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russel Brand', 'Bernie Madoff', 'Amy Winehouse']
+  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russell Brand', 'Bernie Madoff', 'Amy Winehouse']
   const { initialResults, controversies, triggerSearch  } = useSearchResults();
   
   const randomSearch = () => {
     const randomIndex = Math.floor(Math.random() * randomSearchInputs.length);
     triggerSearch(randomSearchInputs[randomIndex]);
   }
-
 
   const saveControversy = (snippetToShow, isFavorite = false) => {
     const controversyObject = {
@@ -51,22 +50,21 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Link to="/" className="logo-link"> 
-          <h1 className='header-text'>H8rAid!</h1>
+        <h1 className='header-text'>H8rAid!</h1>
       </Link>
+      {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
       <NavBarButtons />
-        {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
       </header>
       <Routes>
-      <Route path='/' element={<WikipediaSearch savedControversies={savedControversies} saveControversy={saveControversy} />}/>
-      <Route path='/main' element={<Navigate to='/' />} />
-      <Route path='/profile' element={<Profile savedControversies={savedControversies} />}/>
-      <Route path="article/:id" element={<WikipediaSearch />} />
-    </Routes>
+        <Route path='/' element={<WikipediaSearch savedControversies={savedControversies} saveControversy={saveControversy} />}/>
+        <Route path='/main' element={<Navigate to='/' />} />
+        <Route path='/profile' element={<Profile savedControversies={savedControversies} />}/>
+        <Route path="article/:id" element={<WikipediaSearch />} />
+      </Routes>
       {showRandomControversy && ( 
-
       <section className='random-view'>
         <h2 className='random-headline'>Random Controversy</h2>
-        {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
+        {controversies[0] && <h2 className='result-name'>{initialResults.title}</h2>}
         <section className='results-list'>
         {controversies.map((item, i) => (
           <Card

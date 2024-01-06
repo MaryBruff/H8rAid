@@ -4,7 +4,6 @@
   border-bottom: .5rem solid #F1D302;
   border-right: .5rem solid #F1D302;
   border-radius: 5px;
-  background-color: #FDFFFC;
   margin: 10px;
   padding: 10px;
   padding-top: 0;
@@ -15,7 +14,7 @@
   flex-direction: column;
 }
 
-.card-content {
+.card-content, .card {
   background-color: #FDFFFC;
 }
 
