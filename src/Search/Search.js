@@ -43,8 +43,8 @@ function WikipediaSearch({ saveControversy }) {
                   key={i}
                   title={item.parse.title}
                   snippet={item.parse.text["*"]}
-                  onSave={() => saveControversy(item.parse.text["*"])} // Save controversy function for Save button
-                  onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)} // Save as favorite controversy function for Save as Favorite button
+                  onSave={() => saveControversy(item.parse.text["*"])} 
+                  onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)} 
                 />
               ))}
             </section>

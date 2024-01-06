@@ -68,6 +68,8 @@ function App() {
                 key={i}
                 title={item.parse.title}
                 snippet={item.parse.text["*"]}
+                onSave={() => saveControversy(item.parse.text["*"])} 
+                onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)} 
               />
             ))}
           </section>
