@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Card from '../Card/Card';
-import './Search.css'
+import './Search.css';
 import useSearchResults from '../hooks/useSearchResults';
 
 function WikipediaSearch({savedControversies, saveControversy}) {
@@ -22,7 +22,7 @@ function WikipediaSearch({savedControversies, saveControversy}) {
 
   return (
     <main>
-      <div class='search-banner'>
+      <div className='search-banner'>
       {isAuthenticated && (
         <form onSubmit={handleFormSubmit}>
           <input
@@ -35,12 +35,12 @@ function WikipediaSearch({savedControversies, saveControversy}) {
           <button type="submit">Search</button>
         </form>
       )}
-        {controversies[0] && <h2 id='resultName'>Controversies for {initialResults.title}</h2>}
+        {controversies[0] && <h2 className='result-name'>Controversies for {initialResults.title}</h2>}
       </div>
       <div>
         {controversies.length > 0 && (
           <section>
-            <section id="resultsList">
+            <section className="results-list">
               {controversies.map((item, i) => (
                 <Card
                 key={i}
@@ -56,6 +56,6 @@ function WikipediaSearch({savedControversies, saveControversy}) {
       </div>
     </main>
   );
-}
+};
 
 export default WikipediaSearch;

@@ -8,7 +8,6 @@ import Card from '../Card/Card.js';
 import useSearchResults from '../hooks/useSearchResults.js';
 import Profile from '../UserView/UserView.js';
 
-
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
   const navigate = useNavigate()
@@ -91,6 +90,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;
