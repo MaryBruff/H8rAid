@@ -12,6 +12,20 @@ section {
   flex-direction: column;
 }
 
+button {
+  background-color: grey;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: orange;
+  transform: scale(1.05);
+}
+
 .App-header {
   display: flex;
   justify-content: space-between;
@@ -43,4 +57,9 @@ section {
   border-bottom: 0.5rem solid #C1292E;
   border-right: 0.5rem solid #C1292E;
   width: fit-content;
+}
+
+.logo-link {
+  text-decoration: none; 
+  color: inherit; 
 }
