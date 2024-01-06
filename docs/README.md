@@ -51,7 +51,7 @@
 3. Run the command  `npm install` to install dependencies.
 4. Run the command `npm start` to start the server.
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-6. You can also view the project <a href=".vercel.app/">here</a>.
+6. You can also view the project <a href="https://m3-h8r-aid.vercel.app/">here</a>.
 7. Use control C to stop the server.
 8. To test, run the command `npm run cypress`.
 
