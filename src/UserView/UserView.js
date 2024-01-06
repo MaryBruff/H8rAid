@@ -41,3 +41,8 @@ const Profile = ({ savedControversies }) => {
 };
 
 export default Profile;
+
+ControversyDisplay.propTypes = {
+  initialResults: PropTypes.object.isRequired,
+  controversies: PropTypes.array.isRequired,
+};
