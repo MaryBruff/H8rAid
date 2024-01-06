@@ -36,9 +36,9 @@ function App() {
   };
   
   // COMMENT BACK IN L8R
-  useEffect(() => {
-    randomSearch();
-  }, []);
+  // useEffect(() => {
+  //   randomSearch();
+  // }, []);
 
   if (isLoading) {
     return (
