@@ -16,7 +16,7 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
 
   if (!(domain && clientId && redirectUri)) {
     return null;
-  }
+  };
 
   return (
     <Auth0Provider

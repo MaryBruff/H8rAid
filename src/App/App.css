@@ -1,11 +1,15 @@
 html {
   background-color: #161925;
-  color: #161925;
 }
 
 h1 {
   margin: .67rem;
   font-size: 4rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
@@ -15,36 +19,28 @@ h1 {
   padding: 20px;
 }
 
-.header-text {
+.header-text, .random-headline, .result-name {
   background-color: #FDFFFC;
+  color: #161925;
+  border-radius: 5px;
+}
+
+.header-text, .random-headline {
   border-bottom: .5rem solid #235789;
   border-right: .5rem solid #235789;
 }
 
-.login-button {
-  background-color: grey;
-  color: white;
-  border: none;
-  margin: .67rem;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s, transform 0.3s;
+.random-headline {
+  width: fit-content;
+  margin: 1em;
+  align-self: center;
 }
 
-.login-button:hover {
-  background-color: orange;
-  transform: scale(1.05);
-}
-
-.footer-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.footer-text {
-  background-color: #FDFFFC;
-  border-bottom: .5rem solid #235789;
-  border-right: .5rem solid #235789;
+.result-name {
+  align-self: center;
+  margin: 1em;
+  padding: .1rem;
+  border-bottom: 0.5rem solid #C1292E;
+  border-right: 0.5rem solid #C1292E;
+  width: fit-content;
 }
