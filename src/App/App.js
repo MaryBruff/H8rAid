@@ -7,6 +7,7 @@ import './App.css';
 import Card from '../Card/Card.js';
 import useSearchResults from '../hooks/useSearchResults.js';
 import Profile from '../UserView/UserView.js';
+import ErrorBoundary from '../Errors/ErrorBoundary.js';
 
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
@@ -44,38 +45,40 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Link to="/" className="logo-link">
-          <h1 className='header-text'>H8rAid!</h1>
-        </Link>
-        {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
-        <NavBarButtons />
-      </header>
-      <Routes>
-        <Route path='/' element={<WikipediaSearch savedControversies={savedControversies} saveControversy={saveControversy} />} />
-        <Route path='/main' element={<Navigate to='/' />} />
-        <Route path='/profile' element={<Profile savedControversies={savedControversies} />} />
-        <Route path="article/:id" element={<WikipediaSearch />} />
-      </Routes>
-      {showRandomControversy && (
+    <ErrorBoundary>
+      <div className="App">
+        <header className="App-header">
+          <Link to="/" className="logo-link"> 
+            <h1 className='header-text'>H8rAid!</h1>
+          </Link>
+          {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
+          <NavBarButtons />
+        </header>
+        <Routes>
+          <Route path='/' element={<WikipediaSearch savedControversies={savedControversies} saveControversy={saveControversy} />} />
+          <Route path='/main' element={<Navigate to='/' />} />
+          <Route path='/profile' element={<Profile savedControversies={savedControversies} />} />
+          <Route path="article/:id" element={<WikipediaSearch />} />
+        </Routes>
+        {showRandomControversy && ( 
         <section className='random-view'>
           <h2 className='random-headline'>Random Controversy</h2>
-          {controversies[0] && <h2 className='result-name'>{initialResults.title}</h2>}
+          {controversies[0] && <h2 id='resultName'>{initialResults.title}</h2>}
           <section className='results-list'>
-            {controversies.map((item, i) => (
-              <Card
-                key={i}
-                title={item.parse.title}
-                snippet={item.parse.text["*"]}
-                onSave={() => saveControversy(item.parse.text["*"])} 
-                onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)} 
-              />
-            ))}
+          {controversies.map((item, i) => (
+            <Card
+              key={i}
+              title={item.parse.title}
+              snippet={item.parse.text["*"]}
+              onSave={() => saveControversy(item.parse.text["*"])} 
+              onSaveAsFavorite={() => saveControversy(item.parse.text["*"], true)}
+            />
+          ))}
           </section>
         </section>
-      )}
-    </div>
+        )}
+      </div>
+    </ErrorBoundary>
   );
 };
 
