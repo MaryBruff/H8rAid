@@ -43,21 +43,29 @@ describe('App Component', () => {
     cy.get('.card').should('be.visible');
     cy.get('.result-name').should('contain', '');
     cy.get('.random-headline').should('contain', 'Random Controversy');
-    cy.get('.');
+    cy.get('h2').should('contain', '');
+    cy.get('p').should('contain', '');
+
   });
 });
 
 describe('Can search for a Controversy', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
+    //placeholder for login flow
   })
 
-  it('Searches for a term', () => {
+  it('Searches for a term, then clears input', () => {
+    cy.get('input[type="text"]').should('be.visible');
     cy.get('input[type="text"]').type('SearchTerm{enter}');
+    cy.get('input[type="text"]').should('have.text', '');
   });
 
   it('Displays controversies for a search result', () => {
-
+    cy.get('.card').should('be.visible');
+    cy.get('.result-name').should('contain', '');
+    cy.get('h2').should('contain', '');
+    cy.get('p').should('contain', '');
   });
 });
 
@@ -67,8 +75,9 @@ describe('Card Component', () => {
   })
 
   it('Renders snippet properly', () => {
-
     cy.get('.card-content').should('be.visible');
+    cy.get('h2').should('contain', '');
+    cy.get('p').should('contain', '');
   });
 
   it('Handles show more/show less functionality', () => {
