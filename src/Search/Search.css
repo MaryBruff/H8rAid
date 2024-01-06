@@ -8,11 +8,24 @@ form {
   margin: .67rem;
   color: #161925;
   align-self: center;
-  border-bottom: .5rem solid #F1D302;
-  border-right: .5rem solid #F1D302;
   border-radius: 5px;
   background-color: #FDFFFC;
-  padding: .1rem;
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom: .5rem solid #F1D302;
+  border-right: .5rem solid #F1D302; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  padding: .5rem;
+  border-radius: 5px;
+  margin-right: .5rem;
+  flex-grow: 1;
 }
 
 .search-banner {

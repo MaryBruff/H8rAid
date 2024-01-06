@@ -35,9 +35,9 @@ function App() {
   };
   
   // COMMENT BACK IN L8R
-  // useEffect(() => {
-  //   randomSearch();
-  // }, []);
+  useEffect(() => {
+    randomSearch();
+  }, []);
 
   if (isLoading) {
     return (
@@ -50,20 +50,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Link to="/" className="logo-link"> {/* Wrap the H8rAid logo with Link */}
+      <Link to="/" className="logo-link"> 
           <h1 className='header-text'>H8rAid!</h1>
       </Link>
       <NavBarButtons />
         {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
       </header>
       <Routes>
-      {/* Pass the saveControversy function as a prop */}
       <Route
         path='/'
         element={
           <WikipediaSearch
             savedControversies={savedControversies}
-            saveControversy={saveControversy} // Pass the function as a prop
+            saveControversy={saveControversy} 
           />
         }
       />
