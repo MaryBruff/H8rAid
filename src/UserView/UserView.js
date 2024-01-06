@@ -6,7 +6,6 @@ const Profile = ({ savedControversies }) => {
 
   const handleShowAll = () => {
     setShowFavorites(false);
-    console.log(savedControversies);
   };
 
   const handleShowFavorites = () => {
