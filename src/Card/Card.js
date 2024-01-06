@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
 import './Card.css';
 import modifyRelativeUrls from '../hooks/modifyRelativeUrls';
+import PropTypes from "prop-types";
 
 const Card = ({ snippet, onSave, onSaveAsFavorite }) => {
   const [showFullContent, setShowFullContent] = useState(false);
