@@ -16,7 +16,7 @@ function App() {
   const showRandomControversy = location.pathname !== '/profile';
   const [savedControversies, setSavedControversies] = useState([]);
 
-  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russell Brand', 'Bernie Madoff', 'Amy Winehouse']
+  const randomSearchInputs = ['4chan', 'Titan (Submersible)', 'Billy Mitchell (gamer)', 'You Showed Me', 'Ezra Miller', 'Russell Brand', 'Bernie Madoff', 'Amy Winehouse','Erika Jayne', 'Clinton body count conspiracy theory'];
   const { initialResults, controversies, triggerSearch } = useSearchResults();
 
   const randomSearch = () => {
