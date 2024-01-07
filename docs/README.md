@@ -66,8 +66,7 @@
 📱 Mobile and Tablet Views 
 
 
-
-APP PREVIEW HERE
+![image](https://github.com/Jesuitman/m3-H8rAid/assets/128327004/3b32562a-932d-4b0a-ad91-0a62afe324fb)
 
 
   <summary>
