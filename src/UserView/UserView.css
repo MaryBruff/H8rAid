@@ -1,0 +1,17 @@
+.profile {
+    flex-direction: column;
+  }
+  
+  .filter-buttons, .profile {
+    display: flex;
+  }
+  
+  .filter-buttons {
+    justify-content: center;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .results-list {
+      flex-direction: column;
+    }
+  }

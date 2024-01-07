@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../Card/Card';
+import PropTypes from "prop-types";
+import './UserView.css';
 
 const Profile = ({ savedControversies }) => {
   const [showFavorites, setShowFavorites] = useState(false);
@@ -40,3 +42,7 @@ const Profile = ({ savedControversies }) => {
 };
 
 export default Profile;
+
+Profile.propTypes = {
+  savedControversies: PropTypes.array.isRequired,
+}
