@@ -42,7 +42,7 @@ describe('App Component', () => {
   it('Displays random controversies', () => {
     cy.get('.result-name').should('contain', '');
     cy.get('.random-headline').should('contain', 'Random Controversy');
-    cy.get('.card').should('be.visible')
+    cy.get('.card').should('be.visible');
     cy.get('.card')
       .children()
       .first()
@@ -59,7 +59,7 @@ describe('Can search for a Controversy', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
     //placeholder for login flow
-  })
+  });
 
   it('Searches for a term, then clears input', () => {
     cy.get('input[type="text"]').should('be.visible');
@@ -80,14 +80,14 @@ describe('Can search for a Controversy', () => {
         cy.contains('button', '🤬Save as favorite controversy🤬');
       });
       cy.get('.results-list')
-      .children()
-      .last()
-      .within(() => {
-        cy.contains('h2', '');
-        cy.contains('p', '');
-        cy.contains('button', '😡Save Controversy😡');
-        cy.contains('button', '🤬Save as favorite controversy🤬');
-      });
+        .children()
+        .last()
+        .within(() => {
+          cy.contains('h2', '');
+          cy.contains('p', '');
+          cy.contains('button', '😡Save Controversy😡');
+          cy.contains('button', '🤬Save as favorite controversy🤬');
+        });
   });
 });
 
@@ -114,7 +114,10 @@ describe('UserView Component', () => {
   })
 
   it('Loads page content properly', () => {
+    cy.get('#profile').should('be.visible');
+    cy.get('#profile').click();
     cy.visit('http://localhost:3000/Profile'); 
+    cy.get('.filter-buttons').should('have.descendants', 'button');
     // cy.get('.article').should('be.visible');
   });
 

@@ -51,7 +51,7 @@ function App() {
           <Link to="/" className="logo-link"> 
             <h1 className='header-text'>H8rAid!</h1>
           </Link>
-          {isAuthenticated && <button onClick={() => navigate("/profile")}>Profile</button>}
+          {isAuthenticated && <button id='profile' onClick={() => navigate("/profile")}>Profile</button>}
           <NavBarButtons />
         </header>
         <Routes>
