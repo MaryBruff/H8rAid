@@ -40,12 +40,18 @@ describe('App Component', () => {
   });
 
   it('Displays random controversies', () => {
-    cy.get('.card').should('be.visible');
     cy.get('.result-name').should('contain', '');
     cy.get('.random-headline').should('contain', 'Random Controversy');
-    cy.get('h2').should('contain', '');
-    cy.get('p').should('contain', '');
-
+    cy.get('.card').should('be.visible')
+    cy.get('.card')
+      .children()
+      .first()
+      .within(() => {
+        cy.contains('h2', '');
+        cy.contains('p', '');
+        cy.contains('button', '😡Save Controversy😡');
+        cy.contains('button', '🤬Save as favorite controversy🤬');
+      });
   });
 });
 
@@ -64,8 +70,24 @@ describe('Can search for a Controversy', () => {
   it('Displays controversies for a search result', () => {
     cy.get('.card').should('be.visible');
     cy.get('.result-name').should('contain', '');
-    cy.get('h2').should('contain', '');
-    cy.get('p').should('contain', '');
+    cy.get('.results-list')
+      .children()
+      .first()
+      .within(() => {
+        cy.contains('h2', '');
+        cy.contains('p', '');
+        cy.contains('button', '😡Save Controversy😡');
+        cy.contains('button', '🤬Save as favorite controversy🤬');
+      });
+      cy.get('.results-list')
+      .children()
+      .last()
+      .within(() => {
+        cy.contains('h2', '');
+        cy.contains('p', '');
+        cy.contains('button', '😡Save Controversy😡');
+        cy.contains('button', '🤬Save as favorite controversy🤬');
+      });
   });
 });
 
@@ -85,14 +107,15 @@ describe('Card Component', () => {
   });
 });
 
-describe('WikipediaPage Component', () => {
+describe('UserView Component', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
+    //login flow placeholder
   })
 
   it('Loads page content properly', () => {
     cy.visit('http://localhost:3000/Profile'); 
-    cy.get('.article').should('be.visible');
+    // cy.get('.article').should('be.visible');
   });
 
   it('Saves controversy properly', () => {

@@ -8,6 +8,10 @@
       {
         "title": "Example Title 2",
         "snippet": "Another example snippet for the second result."
+      },
+      {
+        "title": "Example Title 3",
+        "snippet": "Another example snippet for the third result."
       }
     ]
   }
