@@ -28,6 +28,7 @@ function WikipediaSearch({ saveControversy }) {
               onChange={e => setSearchInput(e.target.value)}
               autoComplete="off"
               placeholder="Search on Wikipedia"
+              aria-label="Search Wikipedia"
             />
             <button type="submit">Search</button>
           </form>
