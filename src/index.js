@@ -9,9 +9,6 @@ import { BrowserRouter } from 'react-router-dom';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL; // Make sure this is set to the deployed URL
-
-
 root.render(
   <React.StrictMode>
     <BrowserRouter> 
@@ -19,7 +16,7 @@ root.render(
         domain={domain}
         clientId={clientId}
         authorizationParams={{
-          redirect_uri: redirectUri
+          redirect_uri: "http://localhost:3000/"
         }}
       >
         <App />
