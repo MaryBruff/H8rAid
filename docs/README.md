@@ -31,7 +31,7 @@
 
 ### Note ⚠️
 
-If you would like to contritube or look at this repo in development you'll need our env file to do so. Email the file administrator for the env contents @
+If you would like to contritube or look at this repo in development you'll need our env file to do so. Email the file administrator for the env contents 📧
 Alex.hastings.1227@gmail.com
 
 ---
