@@ -93,7 +93,8 @@ git checkout Testing/no auth testing branch
 <h2  id="preview"> 🎥 Preview 📱 </h2>
 <details>
     
-![h8raid-preview-gif](https://github.com/Jesuitman/m3-H8rAid/assets/139895703/8134bd58-abee-4ad3-880e-dc42ee26bf42)
+
+![Screenshot 2024-01-18 at 10 38 08 AM](https://github.com/MaryBruff/H8rAid/assets/128327004/a344bcbb-bdac-4f02-a91c-8e4e7250601c)
 
 
 
