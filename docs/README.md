@@ -29,12 +29,18 @@
 
 </div>
 
+### Note ⚠️
+
+If you would like to contritube or look at this repo in development you'll need our env file to do so. Email the file administrator for the env contents @
+Alex.hastings.1227@gmail.com
+
 ---
 
 ## 📚 Table of Contents
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+- [Testing Cypress Instructions](#testing-cypress-instructions)
 - [Preview](#preview)
 - [Wins](#wins)
 - [Future Ideas](#future-ideas)
@@ -53,7 +59,35 @@
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 6. You can also view the project <a href="https://m3-h8r-aid.vercel.app/">here</a>.
 7. Use control C to stop the server.
-8. To test, run the command `npm run cypress`.
+
+
+
+<h2  id="testing-cypress-instructions"> 🧪 Testing Cypress Instructions </h2>
+
+  <details>
+
+  <summary>
+This section provides instructions for running Cypress tests on our project.
+</summary>
+
+      
+
+
+### Main Features Testing
+Main features can be tested from the main branch
+
+
+ ```bash
+npm run cypress
+```
+### AuthO Features Testing
+We have a separate testing branch for our AuthO functionality to run these tests checkout to 
+
+ ```bash
+git checkout Testing/no auth testing branch
+``` 
+
+  </details>
 
 
 <h2  id="preview"> 🎥 Preview 📱 </h2>
